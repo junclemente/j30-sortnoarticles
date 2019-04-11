@@ -12,3 +12,5 @@ This project is a practice in writing vanilla JavaScript and to learn about othe
 
 
 #### Project takeaways
+* `Array.sort` - Modified the sort function to compare the 'a' and 'b' without articles
+* `RegEx` - Used regular expressions to help modify the sort function
