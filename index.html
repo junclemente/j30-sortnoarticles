@@ -48,15 +48,24 @@
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
-console.log(window.location.href);
-function checkURL() {
-  if ((window.location.href).includes("github.io")) {
-    console.log("GITHUB!!!!!!");
-  } else {
-    console.log("NOT FROM GITHUB...");
+function removeArticles(title) {
+  let titleArray = title.split(' ');
+  if (titleArray[0] == "A" || titleArray[0] == "An" || titleArray[0] == "The") {
+    titleArray.shift();
   }
+  let newTitle = titleArray.join(' ');
+  return newTitle
 }
-checkURL();
+
+const sorted = bands.sort( function(a, b) {
+  const compareA = removeArticles(a);
+  const compareB = removeArticles(b);
+  console.log(compareA, compareB);
+  return compareA > compareB ? 1 : -1;
+});
+
+console.table(sorted);
+
 </script>
 
 </body>
